@@ -1,7 +1,14 @@
+import java.util.Objects;
+
 public class PersonagemGame {
     private int saudeAtual;
     private String nome;
     private String status;
+
+    public PersonagemGame(int saudeAtual, String nome) {
+        setSaudeAtual(saudeAtual);
+        this.nome = nome;
+    }
 
     public int getSaudeAtual() {
         return saudeAtual;
@@ -17,7 +24,7 @@ public class PersonagemGame {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nome = (Objects.isNull(nome) || nome.isEmpty()) ? this.nome : nome;
     }
 
     public String getStatus() {
