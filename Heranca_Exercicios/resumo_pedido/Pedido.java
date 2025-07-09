@@ -33,8 +33,8 @@ public class Pedido {
         Arrays.
                 stream(itens)
                 .forEach(i -> System.out.printf("Tipo: %s  Titulo: %s  Preco: %.2f  Quant: %d  Total: %.2f\n",
-                        i.getProduto().getClass().getName(),
-                        i.getProduto().getTitulo(),
+                        i.getProduto().getClass().getName().trim(),
+                        i.getProduto().getTitulo().trim(),
                         i.getProduto().obterPrecoLiquido(),
                         i.getQuantidade(),
                         i.getQuantidade() * i.getProduto().obterPrecoLiquido()));
