@@ -1,6 +1,6 @@
 import java.lang.reflect.Modifier;
 
-public class Program {
+public class Program3 {
     public static void main(String[] args) {
         try {
             if (Modifier.isAbstract(FormaGeometrica.class.getDeclaredMethod("area").getModifiers()))
