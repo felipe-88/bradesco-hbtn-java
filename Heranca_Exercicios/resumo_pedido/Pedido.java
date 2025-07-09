@@ -32,7 +32,7 @@ public class Pedido {
         System.out.println("------- RESUMO PEDIDO -------");
         Arrays.
                 stream(itens)
-                .forEach(i -> System.out.printf("Tipo: %s  Titulo: %s  Preco: %.2f  Quant: %d  Total: %.2f\n",
+                .forEach(i -> System.out.printf("Tipo: %s Titulo: %s Preco: %.2f Quant: %d Total: %.2f\n",
                         i.getProduto().getClass().getName().trim(),
                         i.getProduto().getTitulo().trim(),
                         i.getProduto().obterPrecoLiquido(),
