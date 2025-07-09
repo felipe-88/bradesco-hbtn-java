@@ -38,11 +38,11 @@ public class Pedido {
                         i.getProduto().obterPrecoLiquido(),
                         i.getQuantidade(),
                         i.getQuantidade() * i.getProduto().obterPrecoLiquido()));
-        System.out.println("--------------------------");
+        System.out.println("------------------------");
         System.out.printf("DESCONTO: %.2f\n", getDesconto(getSum()));
         System.out.printf("TOTAL PRODUTOS: %.2f\n", getSum());
-        System.out.println("--------------------------");
+        System.out.println("------------------------");
         System.out.printf("TOTAL PEDIDO: %.2f\n", calcularTotal());
-        System.out.println("--------------------------");
+        System.out.println("------------------------");
     }
 }
