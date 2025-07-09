@@ -28,7 +28,6 @@ public class Pedido {
     }
 
     public void apresentarResumoPedido() {
-        Locale.setDefault(new Locale("pt", "BR"));
         System.out.println("------ RESUMO PEDIDO ------");
         Arrays.
                 stream(itens)
