@@ -5,6 +5,11 @@ public class Sedex implements ProvedorFrete {
     public Frete calcularFrete(double peso, double valor) {
 
         return new Frete(peso > 1000D ? valor * 0.1 : valor * 0.05,
-                TipoProvedorFrete.SEDEX);
+                obterTipoProvedorFrete());
+    }
+
+    @Override
+    public TipoProvedorFrete obterTipoProvedorFrete() {
+        return TipoProvedorFrete.SEDEX;
     }
 }
