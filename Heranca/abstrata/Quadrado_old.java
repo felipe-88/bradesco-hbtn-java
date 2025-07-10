@@ -1,4 +1,4 @@
-public class Quadrado extends Retangulo {
+public class Quadrado_old extends Retangulo {
     private double lado;
 
     public double getLado() {
