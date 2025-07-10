@@ -4,7 +4,7 @@ import provedores.Sedex;
 
 import java.util.Locale;
 
-public class Program {
+public class Program7 {
     public static void main(String[] args) {
         Locale.setDefault(new Locale("pt", "BR"));
         Pedido pedido1 = new Pedido(1, 1500, 234.90);
