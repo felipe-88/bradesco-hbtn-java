@@ -3,7 +3,7 @@ import atividades.CodificarVideo;
 import atividades.EnviarEmail;
 import atividades.ModificarStatusVideo;
 
-public class Program {
+public class Program6 {
     public static void main(String[] args) {
         MaquinaWorkflow maquinaWorkflow = new MaquinaWorkflow();
 

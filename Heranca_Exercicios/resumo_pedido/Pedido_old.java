@@ -1,12 +1,12 @@
 import java.util.Arrays;
 import java.util.Locale;
 
-public class Pedido {
+public class Pedido_old {
 
     private double percentualDesconto;
     private ItemPedido[] itens;
 
-    public Pedido(double percentualDesconto, ItemPedido[] itens) {
+    public Pedido_old(double percentualDesconto, ItemPedido[] itens) {
         this.percentualDesconto = percentualDesconto;
         this.itens = itens;
     }

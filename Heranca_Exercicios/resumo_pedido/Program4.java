@@ -16,9 +16,9 @@ public class Program4 {
                 new ItemPedido(dvd2, 1)
         };
 
-        Pedido pedido1 = new Pedido(0, itensPedido1);
+        Pedido_old pedidoOld1 = new Pedido_old(0, itensPedido1);
 
-        pedido1.apresentarResumoPedido();
+        pedidoOld1.apresentarResumoPedido();
 
         // Pedido 2
         ItemPedido[] itensPedido2 = new ItemPedido[] {
@@ -26,9 +26,9 @@ public class Program4 {
                 new ItemPedido(dvd2, 1)
         };
 
-        Pedido pedido2 = new Pedido(10, itensPedido2);
+        Pedido_old pedidoOld2 = new Pedido_old(10, itensPedido2);
 
-        pedido2.apresentarResumoPedido();
+        pedidoOld2.apresentarResumoPedido();
 
         // Pedido 3
         ItemPedido[] itensPedido3 = new ItemPedido[] {
@@ -37,9 +37,9 @@ public class Program4 {
                 new ItemPedido(dvd1, 1)
         };
 
-        Pedido pedido3 = new Pedido(5, itensPedido3);
+        Pedido_old pedidoOld3 = new Pedido_old(5, itensPedido3);
 
-        pedido3.apresentarResumoPedido();
+        pedidoOld3.apresentarResumoPedido();
 
         // Pedido 4
         ItemPedido[] itensPedido4 = new ItemPedido[] {
@@ -50,8 +50,8 @@ public class Program4 {
                 new ItemPedido(dvd2, 2)
         };
 
-        Pedido pedido4 = new Pedido(5, itensPedido4);
+        Pedido_old pedidoOld4 = new Pedido_old(5, itensPedido4);
 
-        pedido4.apresentarResumoPedido();
+        pedidoOld4.apresentarResumoPedido();
     }
 }
