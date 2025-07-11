@@ -6,16 +6,16 @@ public class Estoque {
     private String fileName;
     private List<String> leitura = new ArrayList<>();
     private List<Produto> produtos = new ArrayList<>();
+    private String root = System.getProperty("user.dir");
+    private String path = root + File.separator + "arquivos" + File.separator + "3" + File.separator + fileName;
+    //private String path = "/home/student_jail/student_repo/arquivos/3/estoque.csv";
 
     public Estoque(String fileName) {
         this.fileName = fileName;
     }
 
     private void leitura() {
-        String root = System.getProperty("user.dir");
-        String path = root + File.separator + "arquivos" + File.separator + "3" + File.separator + fileName;
-        //try(BufferedReader reader = new BufferedReader(new FileReader(path))) {
-        try(BufferedReader reader = new BufferedReader(new FileReader("/home/student_jail/student_repo/arquivos/3/estoque.csv"))) {
+        try(BufferedReader reader = new BufferedReader(new FileReader(path))) {
             leitura = reader.lines().toList();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -35,12 +35,8 @@ public class Estoque {
     }
 
     private void  gravacao() {
-        String root = System.getProperty("user.dir");
-        String path = root + File.separator + "arquivos" + File.separator + "3" + File.separator + fileName;
-
         produtos.stream().forEach(produto -> {
-            //try(BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
-            try(BufferedWriter writer = new BufferedWriter(new FileWriter("/home/student_jail/student_repo/arquivos/3/estoque.csv"))) {
+            try(BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
                 writer.write(String.format("%d,%s,%d,%.2f", produto.getId(), produto.getNome(), produto.getQuantidade(), produto.getPreco()));
                 writer.newLine();;
             } catch (IOException e) {
@@ -61,29 +57,41 @@ public class Estoque {
         if (preco <= 0D)
             throw new IllegalArgumentException("Digite um preço válido para o produto");
 
-        leitura();
-        produtos.add(new Produto(gerarId(), nome, quantidade, preco));
-        gravacao();
+        actions("A", nome, quantidade, preco);
     }
 
     public void excluirProduto(int idExcluir) {
         if (idExcluir <= 0)
             throw new IllegalArgumentException("Digite um id válido");
-        leitura();
-        produtos.remove(idExcluir);
+        actions("X", idExcluir);
     }
 
     public void exibirEstoque() {
-        leitura();
-        leitura.forEach(System.out::println);
+        actions("E");
     }
 
     public void atualizarQuantidade(int idAtualizar, int novaQuantidade) {
         if(novaQuantidade <= 0)
             throw new IllegalArgumentException("Digite uma quantidade maior que zero");
+        actions("U", idAtualizar, novaQuantidade);
+    }
+
+    private void actions(String op, Object... params) {
         leitura();
-        Produto produto = produtos.get(idAtualizar);
-        produto.setQuantidade(novaQuantidade);
-        produtos.add(idAtualizar, produto);
+        switch (op) {
+            case "A" ->  produtos.add(new Produto(gerarId(),
+                    params[0].toString(),
+                    Integer.parseInt(params[1].toString()),
+                    Double.parseDouble(params[2].toString())));
+            case "X" -> produtos.remove(Integer.parseInt(params[0].toString()));
+            case "E" -> leitura.forEach(System.out::println);
+            case "U" -> {
+                int index = Integer.parseInt(params[0].toString());
+                Produto produto = produtos.get(index);
+                produto.setQuantidade(Integer.parseInt(params[1].toString()));
+                produtos.add(index, produto);
+            }
+        }
+        gravacao();
     }
 }
