@@ -1,11 +1,10 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Formatter;
 import java.util.List;
 
 public class Estoque {
     private String fileName = "estoque.csv";
-    private List<String> leitura = new ArrayList<>();
-    private List<Produto> produtos = new ArrayList<>();
     private String root = System.getProperty("user.dir");
     //private String path = root + File.separator + "arquivos" + File.separator + "3" + File.separator + fileName;
     private String path = "/home/student_jail/student_repo/arquivos/3/estoque.csv";
@@ -14,7 +13,8 @@ public class Estoque {
         this.fileName = fileName;
     }
 
-    private void leitura() {
+    private List<Produto> leitura() {
+        List<String> leitura = new ArrayList<>();
         try(BufferedReader reader = new BufferedReader(new FileReader(path))) {
             leitura = reader.lines().toList();
         } catch (FileNotFoundException e) {
@@ -23,31 +23,48 @@ public class Estoque {
             throw new RuntimeException(e);
         }
         finally {
-            convert();
+            return convert(leitura);
         }
     }
 
-    private void convert() {
+    private List<Produto> convert(List<String> leitura) {
+        List<Produto> produtos = new ArrayList<>();
         if (!leitura.isEmpty()) {
             produtos = new ArrayList<>(leitura.stream().map(l -> {
                 String[] split = l.split(",");
                 return new Produto(Integer.parseInt(split[0]), split[1], Integer.parseInt(split[2]), Double.parseDouble(split[3]));
             }).toList());
         }
+        return produtos;
     }
 
-    private void  gravacao() {
-        produtos.forEach(produto -> {
-            try(BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
-                writer.write(produto.toCsv());
-                writer.newLine();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+    private void  gravacao(List<Produto> produtos) {
+        try {
+            Formatter saida = new Formatter(path);
+            for (int i = 0; i < produtos.size(); i++) {
+                Produto produto = produtos.get(i);
+                if (i + 1 == produtos.size())
+                    saida.format("%d,%s,%d,%.2f", produto.getId(), produto.getNome(), produto.getQuantidade(), produto.getPreco());
+                saida.format("%d,%s,%d,%.2f\n", produto.getId(), produto.getNome(), produto.getQuantidade(), produto.getPreco());
             }
-        });
+            saida.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+//        PrintWriter printWriter = null;
+//        for(Produto produto : produtos) {
+//            try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
+//                printWriter = new PrintWriter(writer);
+//                printWriter.println(produto.toCsv());
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
+//        printWriter.flush();
+//        printWriter.close();
     }
 
-    private int gerarId() {
+    private int gerarId(List<Produto> produtos) {
         int id = 1;
         return produtos.isEmpty() ? id : produtos.get(produtos.size() - 1).getId() + id;
     }
@@ -68,7 +85,7 @@ public class Estoque {
     }
 
     public void exibirEstoque() {
-        leitura();
+        List<Produto> produtos = leitura();
         produtos.forEach(p -> System.out.println(p.toString()));
     }
 
@@ -79,10 +96,10 @@ public class Estoque {
     }
 
     private void actions(String op, Object... params) {
-        leitura();
+        List<Produto> produtos = leitura();
         switch (op) {
             case "A" ->  {
-                int id = gerarId();
+                int id = gerarId(produtos);
                 produtos.add(new Produto(id,
                     params[0].toString(),
                     Integer.parseInt(params[1].toString()),
@@ -101,6 +118,6 @@ public class Estoque {
                 }
             }
         }
-        gravacao();
+        gravacao(produtos);
     }
 }
