@@ -94,9 +94,11 @@ public class Estoque {
                 Produto produto = produtos.stream()
                         .filter(produto1 -> produto1.getId() == index)
                         .findFirst()
-                        .get();
-                produto.setQuantidade(Integer.parseInt(params[1].toString()));
-                produtos.add(index, produto);
+                        .orElse(new Produto(0, "nao_existe", 0, 0D));
+                if (!produto.getNome().equals("nao_existe")) {
+                    produto.setQuantidade(Integer.parseInt(params[1].toString()));
+                    produtos.add(index, produto);
+                }
             }
         }
         gravacao();
