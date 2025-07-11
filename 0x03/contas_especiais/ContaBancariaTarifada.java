@@ -12,12 +12,14 @@ public class ContaBancariaTarifada extends ContaBancariaBasica {
         return quantidadeTransacoes;
     }
 
+    @Override
     public void depositar(double valor) throws OperacaoInvalidaException {
         super.depositar(valor);
         this.setSaldo(this.getSaldo() - 0.1D);
         this.quantidadeTransacoes++;
     }
 
+    Override
     public void sacar(double valor) throws OperacaoInvalidaException {
         super.sacar(valor);
         this.setSaldo(this.getSaldo() - 0.1D);
