@@ -3,12 +3,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Estoque {
-    private String fileName;
+    private String fileName = "estoque.csv";
     private List<String> leitura = new ArrayList<>();
     private List<Produto> produtos = new ArrayList<>();
     private String root = System.getProperty("user.dir");
-    //private String path = root + File.separator + "arquivos" + File.separator + "3" + File.separator + fileName;
-    private String path = "/home/student_jail/student_repo/arquivos/3/estoque.csv";
+    private String path = root + File.separator + "arquivos" + File.separator + "3" + File.separator + fileName;
+    //private String path = "/home/student_jail/student_repo/arquivos/3/estoque.csv";
 
     public Estoque(String fileName) {
         this.fileName = fileName;
@@ -22,15 +22,17 @@ public class Estoque {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        convert();
+        finally {
+            convert();
+        }
     }
 
     private void convert() {
         if (!leitura.isEmpty()) {
-            produtos = leitura.stream().map(l -> {
+            produtos = new ArrayList<>(leitura.stream().map(l -> {
                 String[] split = l.split(",");
                 return new Produto(Integer.parseInt(split[0]), split[1], Integer.parseInt(split[2]), Double.parseDouble(split[3]));
-            }).toList();
+            }).toList());
         }
     }
 
@@ -42,7 +44,6 @@ public class Estoque {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
         });
     }
 
@@ -79,10 +80,13 @@ public class Estoque {
     private void actions(String op, Object... params) {
         leitura();
         switch (op) {
-            case "A" ->  produtos.add(new Produto(gerarId(),
+            case "A" ->  {
+                int id = gerarId();
+                produtos.add(new Produto(id,
                     params[0].toString(),
                     Integer.parseInt(params[1].toString()),
                     Double.parseDouble(params[2].toString())));
+            }
             case "X" -> produtos.remove(Integer.parseInt(params[0].toString()));
             case "E" -> leitura.forEach(System.out::println);
             case "U" -> {
