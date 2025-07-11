@@ -10,7 +10,7 @@ public class FileReadingExercise {
         String root = System.getProperty("user.dir");
         String path = root + File.separator + "arquivos" + File.separator + "1" + File.separator + fileName;
         System.out.println("Conteúdo do arquivo 'exemplo.txt':\n");
-        try(BufferedReader reader = new BufferedReader(new FileReader("/home/student_jail/student_repo/arquivos/1/arquivos/1/exemplo.txt"))) {
+        try(BufferedReader reader = new BufferedReader(new FileReader("/home/student_jail/student_repo/arquivos/1/exemplo.txt"))) {
             reader.lines().forEach(System.out::println);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
