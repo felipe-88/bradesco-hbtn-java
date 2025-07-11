@@ -52,7 +52,7 @@ public class Estoque {
 
     private int gerarId() {
         int id = 1;
-        return produtos.isEmpty() ? id : produtos.getLast().getId() + id;
+        return produtos.isEmpty() ? id : produtos.get(produtos.size() - 1).getId() + id;
     }
 
     public void adicionarProduto(String nome, int quantidade, double preco) {
