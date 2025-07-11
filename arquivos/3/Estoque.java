@@ -87,11 +87,14 @@ public class Estoque {
                     Integer.parseInt(params[1].toString()),
                     Double.parseDouble(params[2].toString())));
             }
-            case "X" -> produtos.remove(Integer.parseInt(params[0].toString()));
+            case "X" -> produtos.removeIf(produto ->  produto.getId() == Integer.parseInt(params[0].toString()));
             case "E" -> leitura.forEach(System.out::println);
             case "U" -> {
                 int index = Integer.parseInt(params[0].toString());
-                Produto produto = produtos.get(index);
+                Produto produto = produtos.stream()
+                        .filter(produto1 -> produto1.getId() == index)
+                        .findFirst()
+                        .get();
                 produto.setQuantidade(Integer.parseInt(params[1].toString()));
                 produtos.add(index, produto);
             }
