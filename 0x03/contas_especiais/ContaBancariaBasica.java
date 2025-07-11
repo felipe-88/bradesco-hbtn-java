@@ -19,6 +19,10 @@ public class ContaBancariaBasica {
         return saldo;
     }
 
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
     public double getTaxaJurosAnual() {
         return taxaJurosAnual;
     }
