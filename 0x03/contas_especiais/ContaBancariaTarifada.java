@@ -19,7 +19,7 @@ public class ContaBancariaTarifada extends ContaBancariaBasica {
         this.quantidadeTransacoes++;
     }
 
-    Override
+    @Override
     public void sacar(double valor) throws OperacaoInvalidaException {
         super.sacar(valor);
         this.setSaldo(this.getSaldo() - 0.1D);
