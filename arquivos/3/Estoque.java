@@ -37,7 +37,7 @@ public class Estoque {
     }
 
     private void  gravacao() {
-        produtos.stream().forEach(produto -> {
+        produtos.forEach(produto -> {
             try(BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
                 writer.write(produto.toCsv());
                 writer.newLine();
@@ -68,7 +68,8 @@ public class Estoque {
     }
 
     public void exibirEstoque() {
-        actions("E");
+        leitura();
+        produtos.forEach(p -> System.out.println(p.toString()));
     }
 
     public void atualizarQuantidade(int idAtualizar, int novaQuantidade) {
@@ -88,7 +89,6 @@ public class Estoque {
                     Double.parseDouble(params[2].toString())));
             }
             case "X" -> produtos.removeIf(produto ->  produto.getId() == Integer.parseInt(params[0].toString()));
-            case "E" -> produtos.forEach(p -> System.out.println(p.toString()));
             case "U" -> {
                 int index = Integer.parseInt(params[0].toString());
                 Produto produto = produtos.stream()
