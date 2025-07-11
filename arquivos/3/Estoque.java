@@ -7,8 +7,8 @@ public class Estoque {
     private List<String> leitura = new ArrayList<>();
     private List<Produto> produtos = new ArrayList<>();
     private String root = System.getProperty("user.dir");
-    private String path = root + File.separator + "arquivos" + File.separator + "3" + File.separator + fileName;
-    //private String path = "/home/student_jail/student_repo/arquivos/3/estoque.csv";
+    //private String path = root + File.separator + "arquivos" + File.separator + "3" + File.separator + fileName;
+    private String path = "/home/student_jail/student_repo/arquivos/3/estoque.csv";
 
     public Estoque(String fileName) {
         this.fileName = fileName;
