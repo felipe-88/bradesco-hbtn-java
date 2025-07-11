@@ -16,14 +16,18 @@ public class FileWritingExercise {
 
         // implemente o codigo aqui
         System.out.print("Digite o texto, após o término digite \"sair\": ");
-        while (!scanner.nextLine().equals("sair")) {
+        while (true) {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))){
-                writer.write(scanner.nextLine());
+                String line = scanner.nextLine();
+                if (line.equals("sair"))
+                    break;
+                writer.write(line);
                 writer.newLine();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
+        System.out.println("Arquivo salvo com o nome " + fileName);
         scanner.close();
     }
 }
