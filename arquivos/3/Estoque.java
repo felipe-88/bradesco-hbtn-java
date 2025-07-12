@@ -100,10 +100,12 @@ public class Estoque {
         switch (op) {
             case "A" ->  {
                 int id = gerarId(produtos);
-                produtos.add(new Produto(id,
-                    params[0].toString(),
-                    Integer.parseInt(params[1].toString()),
-                    Double.parseDouble(params[2].toString())));
+                if (produtos.stream().noneMatch(produto -> produto.getId() == id)) {
+                    produtos.add(new Produto(id,
+                        params[0].toString(),
+                        Integer.parseInt(params[1].toString()),
+                        Double.parseDouble(params[2].toString())));
+                }
             }
             case "X" -> produtos.removeIf(produto ->  produto.getId() == Integer.parseInt(params[0].toString()));
             case "U" -> {
