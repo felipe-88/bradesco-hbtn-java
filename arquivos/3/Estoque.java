@@ -109,12 +109,13 @@ public class Estoque {
             }
             case "X" -> produtos.removeIf(produto ->  produto.getId() == Integer.parseInt(params[0].toString()));
             case "U" -> {
-                int index = Integer.parseInt(params[0].toString());
+                int id = Integer.parseInt(params[0].toString());
                 Produto produto = produtos.stream()
-                        .filter(produto1 -> produto1.getId() == index)
+                        .filter(produto1 -> produto1.getId() == id)
                         .findFirst()
                         .orElse(new Produto(0, "nao_existe", 0, 0D));
                 if (!produto.getNome().equals("nao_existe")) {
+                    int index = produtos.indexOf(produto);
                     produto.setQuantidade(Integer.parseInt(params[1].toString()));
                     produtos.add(index, produto);
                 }
