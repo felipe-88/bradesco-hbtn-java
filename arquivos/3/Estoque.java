@@ -1,5 +1,6 @@
 import java.io.*;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Formatter;
@@ -77,6 +78,7 @@ public class Estoque {
         if (preco <= 0D)
             throw new IllegalArgumentException("Digite um preço válido para o produto");
         DecimalFormat format = new DecimalFormat("#.##");
+        format.setRoundingMode(RoundingMode.DOWN);
         actions("A", nome, quantidade, Double.valueOf(format.format(preco)));
     }
 
