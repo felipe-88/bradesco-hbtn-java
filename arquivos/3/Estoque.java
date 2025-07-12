@@ -1,4 +1,5 @@
 import java.io.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.List;
@@ -74,8 +75,8 @@ public class Estoque {
             throw new IllegalArgumentException("Digite uma quantidade maior que zero");
         if (preco <= 0D)
             throw new IllegalArgumentException("Digite um preço válido para o produto");
-
-        actions("A", nome, quantidade, preco);
+        double v = BigDecimal.valueOf(preco).setScale(2).doubleValue();
+        actions("A", nome, quantidade, v);
     }
 
     public void excluirProduto(int idExcluir) {
