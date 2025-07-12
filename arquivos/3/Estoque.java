@@ -77,9 +77,8 @@ public class Estoque {
             throw new IllegalArgumentException("Digite uma quantidade maior que zero");
         if (preco <= 0D)
             throw new IllegalArgumentException("Digite um preço válido para o produto");
-        DecimalFormat format = new DecimalFormat("#.##");
-        format.setRoundingMode(RoundingMode.DOWN);
-        actions("A", nome, quantidade, Double.valueOf(format.format(preco)));
+        String format = String.format("%.2f", preco);
+        actions("A", nome, quantidade, Double.valueOf(format));
     }
 
     public void excluirProduto(int idExcluir) {
