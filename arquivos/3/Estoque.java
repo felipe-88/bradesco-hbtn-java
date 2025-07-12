@@ -1,5 +1,6 @@
 import java.io.*;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.List;
@@ -75,8 +76,8 @@ public class Estoque {
             throw new IllegalArgumentException("Digite uma quantidade maior que zero");
         if (preco <= 0D)
             throw new IllegalArgumentException("Digite um preço válido para o produto");
-        double v = BigDecimal.valueOf(preco).setScale(2).doubleValue();
-        actions("A", nome, quantidade, v);
+        DecimalFormat format = new DecimalFormat("#.##");
+        actions("A", nome, quantidade, Double.valueOf(format.format(preco)));
     }
 
     public void excluirProduto(int idExcluir) {
