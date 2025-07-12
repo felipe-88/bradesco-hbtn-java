@@ -117,7 +117,7 @@ public class Estoque {
                 if (!produto.getNome().equals("nao_existe")) {
                     int index = produtos.indexOf(produto);
                     produto.setQuantidade(Integer.parseInt(params[1].toString()));
-                    produtos.add(index, produto);
+                    produtos.set(index, produto);
                 }
             }
         }
