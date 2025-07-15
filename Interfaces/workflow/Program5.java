@@ -19,9 +19,9 @@ public class Program5 {
         processadorVideo5.registrarCanal(new Email());
         processadorVideo5.registrarCanal(new Teams());
 
-        Video video1 = new Video("video1.mpg", FormatoVideo.MPEG);
-        Video video2 = new Video("video2.avi", FormatoVideo.AVI);
-        Video video3 = new Video("video3.mkv", FormatoVideo.MKV);
+        Video_ video1 = new Video_("video1.mpg", FormatoVideo.MPEG);
+        Video_ video2 = new Video_("video2.avi", FormatoVideo.AVI);
+        Video_ video3 = new Video_("video3.mkv", FormatoVideo.MKV);
 
         processadorVideo1.processar(video1);
 

@@ -4,7 +4,7 @@ public class Program10 {
     public static void main(String[] args) {
 
         try {
-            Livro livro1 = new Livro(
+            Livro_ livro1 = new Livro_(
                     "As barbas do imperador: D. Pedro II",
                     "Lilia Moritz Schwarcz",
                     56);
@@ -47,7 +47,7 @@ public class Program10 {
         }
 
         try {
-            Livro livro2 = new Livro(
+            Livro_ livro2 = new Livro_(
                     "ab",
                     "Jane Doe",
                     15.99);
@@ -61,7 +61,7 @@ public class Program10 {
         }
 
         try {
-            Livro livro3 = new Livro(
+            Livro_ livro3 = new Livro_(
                     "Harry Potter e o enigma do principe",
                     "J.K. Rowling",
                     0);

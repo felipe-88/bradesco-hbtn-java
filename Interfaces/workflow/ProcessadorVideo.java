@@ -8,7 +8,7 @@ public class ProcessadorVideo {
         canais.add(canal);
     }
 
-    public void processar(Video video) {
+    public void processar(Video_ video) {
         canais.forEach(canal -> canal.notificar(new Mensagem(video.getArquivo() + " - " + video.getFormato().name(), TipoMensagem.LOG)));
     }
 }

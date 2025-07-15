@@ -1,4 +1,4 @@
-public class Program {
+public class Program14 {
 
     public static void main(String[] args) {
         long inicio  = System.nanoTime();

@@ -1,13 +1,13 @@
 import exceptions.AutorInvalidoException;
 import exceptions.LivroInvalidoException;
 
-public class Livro {
+public class Livro_ {
 
     private String titulo;
     private String autor;
     private double preco;
 
-    public Livro(String titulo, String autor, double preco) throws LivroInvalidoException, AutorInvalidoException {
+    public Livro_(String titulo, String autor, double preco) throws LivroInvalidoException, AutorInvalidoException {
         this.setTitulo(titulo);
         this.setAutor(autor);
         this.setPreco(preco);

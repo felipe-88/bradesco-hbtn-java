@@ -1,8 +1,8 @@
-public class Video {
+public class Video_ {
     private String arquivo;
     private FormatoVideo formato;
 
-    public Video(String arquivo, FormatoVideo formato) {
+    public Video_(String arquivo, FormatoVideo formato) {
         this.arquivo = arquivo;
         this.formato = formato;
     }
