@@ -1,8 +1,8 @@
-public class PessoasArray {
+public class PessoasArray1 {
 
     private String[] nomes;
 
-    public PessoasArray() {
+    public PessoasArray1() {
         nomes =new String[]{"Amanda", "Beatriz", "Carlos","Daniela","Eduardo",
                 "Fabio","Gustavo", "Hingrid","Isabela","Joao","Leise","Maria",
                 "Norberto","Otavio","Paulo", "Quirino","Renata","Sabata",
