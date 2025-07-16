@@ -1,10 +1,10 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Armazem<T> implements Armazenavel<T> {
+public class Armazem0<T> implements Armazenavel0<T> {
     private Map<String, T> itens = new HashMap<>();
 
-    public Armazem() {
+    public Armazem0() {
     }
 
     @Override
