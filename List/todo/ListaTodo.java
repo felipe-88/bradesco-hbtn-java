@@ -9,9 +9,9 @@ public class ListaTodo {
         this.tarefas = new ArrayList<>();
     }
 
-    public void adicionarTarefa(Tarefa tarefa) throws Exception {
+    public void adicionarTarefa(Tarefa tarefa) throws IllegalArgumentException {
         if (this.tarefas.stream().anyMatch(t -> t.getIdentificador() == tarefa.getIdentificador()))
-            throw new Exception(String.format("Tarefa com identificador %d ja existente na lista", tarefa.getIdentificador()));
+            throw new IllegalArgumentException(String.format("Tarefa com identificador %d ja existente na lista", tarefa.getIdentificador()));
         this.tarefas.add(tarefa);
     }
 
