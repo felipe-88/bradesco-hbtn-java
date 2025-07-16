@@ -1,4 +1,4 @@
-public class Program {
+public class Program20 {
     public static void main(String[] args) throws Exception {
         ListaTodo todo = new ListaTodo();
 
