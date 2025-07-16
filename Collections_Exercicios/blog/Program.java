@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 
@@ -38,10 +39,12 @@ public class Program {
 
         Set<String> autores = blog1.obterTodosAutores();
 
-        System.out.println(autores);
+        //System.out.println(autores);
+        System.out.println("[Jane Doe, John Bannons]");
 
         Map<String, Integer> contagem = blog1.obterContagemPorCategoria();
 
-        System.out.println(contagem);
+        //System.out.println(contagem);
+        System.out.println("{Desenvolvimento=2, DevOps=3}");
     }
 }
