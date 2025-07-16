@@ -1,4 +1,4 @@
-public class Program {
+public class Program15 {
     public static void main(String[] args) {
         Livro livro1 = new Livro("Xato", 1);
         Livro livro2 = new Livro("Coracoes sujos", 3);
