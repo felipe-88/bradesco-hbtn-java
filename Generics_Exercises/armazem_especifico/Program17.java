@@ -1,6 +1,6 @@
 import java.util.Locale;
 
-public class Program {
+public class Program17 {
     public static void main(String[] args) {
         Locale.setDefault(new Locale("pt", "BR"));
         Comida comida1 = new Comida("arroz", 100, 15.9);
