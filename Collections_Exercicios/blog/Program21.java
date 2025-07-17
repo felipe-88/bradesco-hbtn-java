@@ -1,32 +1,31 @@
-import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 
-public class Program {
+public class Program21 {
     public static void main(String[] args) {
-        Blog blog1 = new Blog();
+        Blog_ blog1 = new Blog_();
 
-        Post post1 = new Post("John Bannons",
+        Post_ post1 = new Post_("John Bannons",
                 "Como implementar Terraform",
                 "Implementando IaC com Terraform bla bla bla",
                 "DevOps");
 
-        Post post2 = new Post("John Bannons",
+        Post_ post2 = new Post_("John Bannons",
                 "Trabalhando com a interface Set em Java",
                 "A interface Set é implementada por várias coleções em Java bla bla bla",
                 "Desenvolvimento");
 
-        Post post3 = new Post("Jane Doe",
+        Post_ post3 = new Post_("Jane Doe",
                 "Publicando pipelines GitLab",
                 "Para publicar pipelines no GitLab bla bla bla",
                 "DevOps");
 
-        Post post4 = new Post("Jane Doe",
+        Post_ post4 = new Post_("Jane Doe",
                 "Azure Service Bus por onde começar",
                 "Primeiramente, é necessário entender que bla bla bla",
                 "DevOps");
 
-        Post post5 = new Post("Jane Doe",
+        Post_ post5 = new Post_("Jane Doe",
                 "TDD de forma simples",
                 "O processo de desenvolvimento de software TDD bla bla bla",
                 "Desenvolvimento");
