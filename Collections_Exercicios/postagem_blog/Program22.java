@@ -1,7 +1,7 @@
 import java.util.Map;
 import java.util.Set;
 
-public class Program {
+public class Program22 {
     public static void main(String[] args) {
         Blog blog1 = new Blog();
 

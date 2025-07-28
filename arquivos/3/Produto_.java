@@ -1,4 +1,4 @@
-public class Produto {
+public class Produto_ {
     private int id;
     private String nome;
     private int quantidade;
@@ -6,7 +6,7 @@ public class Produto {
 
 
     // Construtor
-    public Produto(int id, String nome, int quantidade, double preco) {
+    public Produto_(int id, String nome, int quantidade, double preco) {
         this.id = id;
         this.nome = nome;
         this.quantidade = quantidade;

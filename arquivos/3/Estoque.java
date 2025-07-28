@@ -1,7 +1,4 @@
 import java.io.*;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.List;
@@ -16,7 +13,7 @@ public class Estoque {
         this.fileName = fileName;
     }
 
-    private List<Produto> leitura() {
+    private List<Produto_> leitura() {
         List<String> leitura = new ArrayList<>();
         try(BufferedReader reader = new BufferedReader(new FileReader(path))) {
             leitura = reader.lines().toList();
@@ -30,22 +27,22 @@ public class Estoque {
         }
     }
 
-    private List<Produto> convert(List<String> leitura) {
-        List<Produto> produtos = new ArrayList<>();
+    private List<Produto_> convert(List<String> leitura) {
+        List<Produto_> produtos = new ArrayList<>();
         if (!leitura.isEmpty()) {
             produtos = new ArrayList<>(leitura.stream().map(l -> {
                 String[] split = l.split(",");
-                return new Produto(Integer.parseInt(split[0]), split[1], Integer.parseInt(split[2]), Double.parseDouble(split[3]));
+                return new Produto_(Integer.parseInt(split[0]), split[1], Integer.parseInt(split[2]), Double.parseDouble(split[3]));
             }).toList());
         }
         return produtos;
     }
 
-    private void  gravacao(List<Produto> produtos) {
+    private void  gravacao(List<Produto_> produtos) {
         try {
             Formatter saida = new Formatter(path);
             for (int i = 0; i < produtos.size(); i++) {
-                Produto produto = produtos.get(i);
+                Produto_ produto = produtos.get(i);
                 if (i + 1 == produtos.size())
                     saida.format("%d,%s,%d,%.2f", produto.getId(), produto.getNome(), produto.getQuantidade(), produto.getPreco());
                 saida.format("%d,%s,%d,%.2f\n", produto.getId(), produto.getNome(), produto.getQuantidade(), produto.getPreco());
@@ -67,7 +64,7 @@ public class Estoque {
 //        printWriter.close();
     }
 
-    private int gerarId(List<Produto> produtos) {
+    private int gerarId(List<Produto_> produtos) {
         int id = 1;
         return produtos.isEmpty() ? id : produtos.get(produtos.size() - 1).getId() + id;
     }
@@ -88,7 +85,7 @@ public class Estoque {
     }
 
     public void exibirEstoque() {
-        List<Produto> produtos = leitura();
+        List<Produto_> produtos = leitura();
         produtos.forEach(p -> System.out.println(p.toString()));
     }
 
@@ -99,12 +96,12 @@ public class Estoque {
     }
 
     private void actions(String op, Object... params) {
-        List<Produto> produtos = leitura();
+        List<Produto_> produtos = leitura();
         switch (op) {
             case "A" ->  {
                 int id = gerarId(produtos);
                 if (produtos.stream().noneMatch(produto -> produto.getId() == id)) {
-                    produtos.add(new Produto(id,
+                    produtos.add(new Produto_(id,
                         params[0].toString(),
                         Integer.parseInt(params[1].toString()),
                         Double.parseDouble(params[2].toString())));
@@ -113,10 +110,10 @@ public class Estoque {
             case "X" -> produtos.removeIf(produto ->  produto.getId() == Integer.parseInt(params[0].toString()));
             case "U" -> {
                 int id = Integer.parseInt(params[0].toString());
-                Produto produto = produtos.stream()
+                Produto_ produto = produtos.stream()
                         .filter(produto1 -> produto1.getId() == id)
                         .findFirst()
-                        .orElse(new Produto(0, "nao_existe", 0, 0D));
+                        .orElse(new Produto_(0, "nao_existe", 0, 0D));
                 if (!produto.getNome().equals("nao_existe")) {
                     int index = produtos.indexOf(produto);
                     produto.setQuantidade(Integer.parseInt(params[1].toString()));
