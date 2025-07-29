@@ -1,4 +1,4 @@
-public class Program {
+public class Program24 {
     public static void main(String[] args) {
         Funcionario funcionario1 = new Funcionario(2360);
 
