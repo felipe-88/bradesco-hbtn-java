@@ -48,6 +48,6 @@ public class Produto {
 
     @Override
     public String toString() {
-        return String.format("[%d] %s %s R$ %,.2f", this.codigo, this.nome, this.categoria, this.preco);
+        return String.format(Locale.of("pt", "BR"), "[%d] %s %s R$ %,.2f", this.codigo, this.nome, this.categoria, this.preco);
     }
 }
