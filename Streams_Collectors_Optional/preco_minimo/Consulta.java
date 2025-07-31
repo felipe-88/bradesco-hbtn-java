@@ -15,4 +15,10 @@ public class Consulta {
                 .findFirst()
                 .get();
     }
+
+    public static List<Produto> obterProdutosPorPrecoMinimo(List<Produto> produtos, double precoMinimo) {
+        return produtos.stream()
+                .filter(produto -> produto.getPreco() >= precoMinimo)
+                .toList();
+    }
 }
