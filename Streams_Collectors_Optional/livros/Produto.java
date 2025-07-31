@@ -1,6 +1,3 @@
-import java.text.NumberFormat;
-import java.util.Locale;
-
 public class Produto {
     private int codigo;
     private String nome;
@@ -48,6 +45,6 @@ public class Produto {
 
     @Override
     public String toString() {
-        return String.format(Locale.of("pt", "BR"), "[%d] %s %s R$ %,.2f", this.codigo, this.nome, this.categoria, this.preco);
+        return String.format("[%d] %s %s R$ %,.2f", this.codigo, this.nome, this.categoria, this.preco);
     }
 }

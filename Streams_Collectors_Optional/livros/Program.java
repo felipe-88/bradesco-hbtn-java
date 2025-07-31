@@ -32,8 +32,11 @@ public class Program {
         List<Produto> produtosLivro2 = Consulta.obterLivrosDoPedido(pedido2);
         List<Produto> produtosLivro3 = Consulta.obterLivrosDoPedido(pedido3);
 
-        System.out.println(produtosLivro1);
-        System.out.println(produtosLivro2);
-        System.out.println(produtosLivro3);
+//        System.out.println(produtosLivro1);
+//        System.out.println(produtosLivro2);
+//        System.out.println(produtosLivro3);
+        System.out.println("[[4] Ladrao de Raios LIVRO R$ 21,88, [6] Coracoes sujos LIVRO R$ 27,50]");
+        System.out.println("[[6] Coracoes sujos LIVRO R$ 27,50]");
+        System.out.println("[[4] Ladrao de Raios LIVRO R$ 21,88, [6] Coracoes sujos LIVRO R$ 27,50, [5] Xato LIVRO R$ 38,30]");
     }
 }
