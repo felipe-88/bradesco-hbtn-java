@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pedido {
+public class Pedido_old1 {
     private ArrayList<PedidoCookie> cookies;
 
-    public Pedido() {
+    public Pedido_old1() {
         this.cookies = new ArrayList<>();
     }
 
