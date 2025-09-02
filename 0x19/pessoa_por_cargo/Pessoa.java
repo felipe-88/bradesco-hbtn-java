@@ -17,7 +17,7 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return String.format(Locale.of("pt", "BR"),"[%d] %s %s %d R$ %f", this.codigo, this.nome, this.cargo, this.idade, this.salario);
+        return String.format(new Locale("pt", "BR"), "[%d] %s %s %d R$ %f", this.codigo, this.nome, this.cargo, this.idade, this.salario);
     }
 
     public String getCargo() {
