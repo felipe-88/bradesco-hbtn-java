@@ -23,4 +23,8 @@ public class Pessoa {
     public String getCargo() {
         return cargo;
     }
+
+    public int getIdade() {
+        return idade;
+    }
 }
