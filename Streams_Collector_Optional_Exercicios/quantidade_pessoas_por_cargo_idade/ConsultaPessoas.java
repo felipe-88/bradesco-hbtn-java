@@ -19,7 +19,7 @@ public class ConsultaPessoas {
     public static Map<String, List<Pessoa>> obterPessoasPorCargoAcimaDe40anos(List<Pessoa> pessoas) {
         return pessoas.stream().collect(
                 Collectors.groupingBy(Pessoa::getCargo,
-                        Collectors.filtering(pessoa32 -> pessoa32.getIdade() > 40, Collectors.toList()))
+                        Collectors.filtering(pessoa432 -> pessoa432.getIdade() > 40, Collectors.toList()))
         );
     }
 
@@ -37,6 +37,18 @@ public class ConsultaPessoas {
                 Collectors.groupingBy(
                         Pessoa::getCargo,
                         Collectors.counting()
+                )
+        );
+    }
+
+    public static Map<String, Map<Integer, Long>> obterContagemPessoasPorCargoEIdade(List<Pessoa> pessoas) {
+        return pessoas.stream().collect(
+                Collectors.groupingBy(
+                        Pessoa::getCargo,
+                        Collectors.groupingBy(
+                                Pessoa::getIdade,
+                                Collectors.counting()
+                        )
                 )
         );
     }
