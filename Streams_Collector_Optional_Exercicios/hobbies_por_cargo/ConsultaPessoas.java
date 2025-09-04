@@ -19,7 +19,7 @@ public class ConsultaPessoas {
     public static Map<String, List<Pessoa>> obterPessoasPorCargoAcimaDe40anos(List<Pessoa> pessoas) {
         return pessoas.stream().collect(
                 Collectors.groupingBy(Pessoa::getCargo,
-                        Collectors.filtering(pessoa5432 -> pessoa5432.getIdade() > 40, Collectors.toList()))
+                        Collectors.filtering(pessoa65432 -> pessoa65432.getIdade() > 40, Collectors.toList()))
         );
     }
 
@@ -58,6 +58,15 @@ public class ConsultaPessoas {
                 Collectors.groupingBy(
                         Pessoa::getCargo,
                         Collectors.averagingDouble(Pessoa::getSalario)
+                )
+        );
+    }
+
+    public static Map<String, TreeSet<String>> obterHobbiesPorCargo(List<Pessoa> pessoas) {
+        return pessoas.stream().collect(
+                Collectors.groupingBy(
+                        Pessoa::getCargo,
+                        Collectors.flatMapping(pessoa -> pessoa.getHobbies().stream(), Collectors.toCollection(TreeSet::new))
                 )
         );
     }

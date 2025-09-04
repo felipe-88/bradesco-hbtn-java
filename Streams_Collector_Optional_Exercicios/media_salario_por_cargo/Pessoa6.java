@@ -1,13 +1,13 @@
 import java.util.Locale;
 
-public class Pessoa implements Comparable<Pessoa> {
+public class Pessoa6 implements Comparable<Pessoa6> {
     private int codigo;
     private String nome;
     private String cargo;
     private int idade;
     private double salario;
 
-    public Pessoa(int codigo, String nome, String cargo, int idade, double salario) {
+    public Pessoa6(int codigo, String nome, String cargo, int idade, double salario) {
         this.codigo = codigo;
         this.nome = nome;
         this.cargo = cargo;
@@ -37,7 +37,7 @@ public class Pessoa implements Comparable<Pessoa> {
     }
 
     @Override
-    public int compareTo(Pessoa o) {
+    public int compareTo(Pessoa6 o) {
         return this.nome.compareTo(o.nome);
     }
 }
