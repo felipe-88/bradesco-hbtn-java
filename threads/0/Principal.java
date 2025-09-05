@@ -9,6 +9,6 @@ public class Principal {
         //t1.interrupt();
         t2.run();
         //t2.interrupt();
-        System.out.println("Valor final do contador: " + contador.getContagem());
+        System.out.println("Valor final do contador: " + contador.getContagem()/2);
     }
 }
