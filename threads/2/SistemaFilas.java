@@ -4,7 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class SistemaFilas {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Fila fila = new Fila(10);
         Produtor produtor1 = new Produtor(fila);
         Produtor produtor2 = new Produtor(fila);
@@ -18,13 +18,14 @@ public class SistemaFilas {
         consumidor1.run();
         produtor2.run();
         consumidor2.run();
-
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                System.exit(0);
-            }
-        }, 20000, 1000);
+        Thread.sleep(20000);
+        System.exit(0);
+//        Timer timer = new Timer();
+//        timer.scheduleAtFixedRate(new TimerTask() {
+//            @Override
+//            public void run() {
+//                System.exit(0);
+//            }
+//        }, 20000, 1000);
     }
 }

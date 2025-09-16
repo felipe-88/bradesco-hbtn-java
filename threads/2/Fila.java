@@ -16,14 +16,18 @@ public class Fila {
     public synchronized void adicionar(int item) throws InterruptedException {
         if (fila.size() == tamanho)
             wait();
-        fila.add(item);
-        notify();
+        else {
+            fila.add(item);
+            notify();
+        }
     }
 
     public synchronized void retirar() throws InterruptedException {
         if(fila.isEmpty())
             wait();
-        fila.removeFirst();
-        notify();
+        else {
+            fila.removeFirst();
+            notify();
+        }
     }
 }
