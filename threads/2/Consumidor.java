@@ -3,6 +3,11 @@ public class Consumidor extends Thread {
 
     public Consumidor(Fila fila) {
         this.fila = fila;
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
