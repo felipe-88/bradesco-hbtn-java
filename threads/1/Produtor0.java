@@ -1,8 +1,8 @@
-public class Produtor extends Thread {
+public class Produtor0 extends Thread {
     private Buffer buffer;
 
 
-    public Produtor(Buffer buffer) {
+    public Produtor0(Buffer buffer) {
         this.buffer = buffer;
     }
 

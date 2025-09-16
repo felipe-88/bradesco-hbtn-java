@@ -1,8 +1,8 @@
-public class Consumidor extends Thread {
+public class Consumidor0 extends Thread {
     private Buffer buffer;
 
 
-    public Consumidor(Buffer buffer) {
+    public Consumidor0(Buffer buffer) {
         this.buffer = buffer;
     }
 
