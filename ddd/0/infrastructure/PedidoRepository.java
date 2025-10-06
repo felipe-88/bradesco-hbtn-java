@@ -14,7 +14,7 @@ public class PedidoRepository {
 
 
     public void salvar(Pedido pedido) {
-        this.pedidos.merge(pedido.getId(), pedido, (pedidoOld,pedidoNew) -> pedidoNew);
+        this.pedidos.put(pedido.getId(), pedido);
     }
 
 
